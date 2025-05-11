@@ -47,6 +47,119 @@
 </section>
 
 
+<!-- kljsd -->
+ <!-- Stats Section -->
+<section class="stats-section">
+  <div class="container">
+    <h2 class="stats-heading">Our Achievements</h2>
+    <div class="stats-grid">
+      <div class="stat-box">
+        <h3 class="counter" data-target="120">0</h3>
+        <p>Projects Completed</p>
+      </div>
+      <div class="stat-box">
+        <h3 class="counter" data-target="95">0</h3>
+        <p>Satisfied Clients</p>
+      </div>
+      <div class="stat-box">
+        <h3 class="counter" data-target="10">0</h3>
+        <p>Countries Reached</p>
+      </div>
+      <div class="stat-box">
+        <h3 class="counter" data-target="5">0</h3>
+        <p>Years of Experience</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CSS -->
+<style>
+  .stats-section {
+    background: #f8f9fa;
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  .stats-heading {
+    font-size: 2.2rem;
+    color: #333;
+    margin-bottom: 40px;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 30px;
+  }
+
+  .stat-box {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+  }
+
+  .stat-box:hover {
+    transform: translateY(-5px);
+  }
+
+  .counter {
+    font-size: 2.5rem;
+    color: #007bff;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .stat-box p {
+    margin-top: 10px;
+    color: #555;
+    font-size: 1rem;
+  }
+</style>
+
+<!-- JavaScript -->
+<script>
+  const counters = document.querySelectorAll('.counter');
+  const speed = 200; // lower is faster
+
+  const animateCounters = () => {
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const increment = target / speed;
+
+        if (count < target) {
+          counter.innerText = Math.ceil(count + increment);
+          setTimeout(updateCount, 20);
+        } else {
+          counter.innerText = target;
+        }
+      };
+
+      updateCount();
+    });
+  };
+
+  // Trigger animation when in view
+  const section = document.querySelector('.stats-section');
+  const observer = new IntersectionObserver(
+    entries => {
+      if (entries[0].isIntersecting) {
+        animateCounters();
+        observer.unobserve(section); // Only trigger once
+      }
+    },
+    { threshold: 0.5 }
+  );
+  observer.observe(section);
+</script>
+
+
+
+
 <!-- What We Do Section -->
 <section class="services-section">
   <h2 class="section-title">What We Do</h2>
