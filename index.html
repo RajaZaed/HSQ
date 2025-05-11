@@ -7,6 +7,8 @@
     <link rel="icon" href="assets/images/Untitled design(2).jpg">
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
 
 </head>
 <body>
@@ -33,7 +35,144 @@
   <img src="assets/images/pexels-pixabay-37347-min.jpg" alt="HSQ Digital Hub Office">
 </section>
 
+<!-- slogan -->
+ <!-- Add this below your main office picture in the HTML -->
+
  
+<!-- What We Do Section -->
+<section class="services-section">
+  <h2 class="section-title">What We Do</h2>
+  <div class="services-container">
+    
+    <!-- Service 1 -->
+    <div class="service-card">
+      <h3>Shopify Store Management</h3>
+      <p>We handle product uploads, theme setup, and daily management of your Shopify store.</p>
+      <a href="#contact" class="book-btn">Book Now</a>
+    </div>
+    
+    <!-- Service 2 -->
+    <div class="service-card">
+      <h3>International Drop Shipping</h3>
+      <p>Expand globally with our expert dropshipping strategy and supplier management.</p>
+      <a href="#contact" class="book-btn">Book Now</a>
+    </div>
+    
+    <!-- Service 3 -->
+    <div class="service-card">
+      <h3>Website Development & designing</h3>
+      <p>We design fast, seo optimized, responsive, and modern websites tailored to your business needs.</p>
+      <a href="#contact" class="book-btn">Book Now</a>
+    </div>
+
+  </div>
+</section>
+
+
+<div class="more-services-container">
+  <a href="services.html" class="more-services-btn">More Services</a>
+</div>
+
+
+<!-- movw -->
+<section class="logo-slogan-section">
+  <div class="logo-slogan-container">
+    <img src="assets/images/Untitled design(2).jpg" alt="HSQ Digital Hub Logo" class="hsq-logo" />
+    <h2 class="slogan animate-slogan">Deal with <span>Best</span></h2>
+  </div>
+</section>
+
+
+<!-- newx -->
+<section class="who-we-are">
+  <div class="who-container">
+    <div class="who-image">
+      <img src="assets/images/new content.jpg" alt="About HSQ">
+    </div>
+    <div class="who-text">
+      <h2>Who We Are</h2>
+      <p>
+        At <strong>HSQ Digital Hub</strong>, we don't just build stores and websites—we create online growth engines.
+        From Shopify to custom websites to global dropshipping, we're the brains behind brands that scale smart.
+      </p>
+      <a href="about.html" class="learn-more-btn">Learn More</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- process -->
+<section class="process">
+  <h2>Our Process</h2>
+  <div class="steps-container">
+    <div class="step">
+      <div class="step-icon">1</div>
+      <h3>Select a Service & Fill Form</h3>
+      <p>Choose the service you need and complete the form so we can get to know your requirements.</p>
+    </div>
+    <div class="step">
+      <div class="step-icon">2</div>
+      <h3>Consultation & Planning</h3>
+      <p>We review your needs and plan the best strategy to achieve your goals.</p>
+    </div>
+    <div class="step">
+      <div class="step-icon">3</div>
+      <h3>Implementation & Development</h3>
+      <p>Our team executes the plan and starts building your solution with attention to detail.</p>
+    </div>
+    <div class="step">
+      <div class="step-icon">4</div>
+      <h3>Launch & Optimization</h3>
+      <p>We launch the product and optimize for performance, ensuring everything runs smoothly.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- blog -->
+<section class="blog">
+  <h2>Latest Insights</h2>
+  <div class="blog-posts">
+    <div class="post">
+      <h3>How to Start Your Online Store in 3 Simple Steps</h3>
+      <p>In this blog, we walk you through how you can quickly set up your Shopify store...</p>
+      <a href="https://www.shopify.com/blog/start-online-store?term=&adid=733097830010&campaignid=19677667389&utm_medium=cpc&utm_source=google&gad_source=1&gad_campaignid=19677667389&gclid=Cj0KCQjwlYHBBhD9ARIsALRu09rNc5KgbuuB3uik-ip_aQKAOA2Htf2R8umtD1lID126LWz8vWvuSloaAvjREALw_wcB#">Read More</a>
+    </div>
+    <div class="post">
+      <h3>Why Choose International Dropshipping for Your Business?</h3>
+      <p>Discover the benefits of international dropshipping and how it can boost your sales...</p>
+      <a href="https://wholesalesuiteplugin.com/10-things-about-international-dropshipping/">Read More</a>
+    </div>
+  </div>
+</section>
+
+<div class="cent">
+<form id="contact-form">
+  <input type="text" id="name" placeholder="Your Name" required>
+  <input type="email" id="email" placeholder="Your Email" required>
+  <textarea id="message" placeholder="Your Message" required></textarea>
+  <button type="submit">Send Message</button>
+</form></div>
+
+<script>
+  document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault(); // Prevent form submission
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    // Construct the message
+    const fullMessage = `*Name:* ${name}\n*Email:* ${email}\n*Message:* ${message}`;
+
+    // WhatsApp link format
+    const phoneNumber = "923179220646"; // Replace with the target phone number (without '+')
+    const whatsappLink = `https://wa.me/923179220646?text=${encodeURIComponent(fullMessage)}`;
+
+    // Redirect the user to WhatsApp
+    window.open(whatsappLink, "_blank");
+  });
+</script>
 
 
 
@@ -104,7 +243,10 @@
 
 <!-- auto removal navbar -->
  <script>
-   
+   AOS.init({
+  duration: 1200, // Animation duration
+});
+
  </script>
 
 </body>
