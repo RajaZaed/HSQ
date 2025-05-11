@@ -146,33 +146,79 @@
   </div>
 </section>
 
-<div class="cent">
-<form id="contact-form">
-  <input type="text" id="name" placeholder="Your Name" required>
-  <input type="email" id="email" placeholder="Your Email" required>
-  <textarea id="message" placeholder="Your Message" required></textarea>
-  <button type="submit">Send Message</button>
-</form></div>
+
 
 <script>
   document.getElementById("contact-form").addEventListener("submit", function(e) {
-    e.preventDefault(); // Prevent form submission
+  e.preventDefault();
 
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const message = document.getElementById("message").value;
 
-    // Construct the message
-    const fullMessage = `*Name:* ${name}\n*Email:* ${email}\n*Message:* ${message}`;
+  const fullMessage = `*Name:* ${name}\n*Email:* ${email}\n*Message:* ${message}`;
+  const phoneNumber = "923179220646"; // client number in correct format
+  const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(fullMessage)}`;
 
-    // WhatsApp link format
-    const phoneNumber = "923179220646"; // Replace with the target phone number (without '+')
-    const whatsappLink = `https://wa.me/923179220646?text=${encodeURIComponent(fullMessage)}`;
+  window.open(whatsappLink, "_blank");
+});
 
-    // Redirect the user to WhatsApp
-    window.open(whatsappLink, "_blank");
-  });
 </script>
+  
+  
+<!-- test -->
+<section id="testimonials" class="testimonials-section">
+  <h2>What Our Clients Say</h2>
+  
+  <div class="testimonial">
+    <div class="testimonial-photo">
+      <img src="assets/images/pakistani-boy-4847991_1280.jpg" alt="Client Image" />
+    </div>
+    <div class="testimonial-text">
+      <p class="client-name">Israr Qureshi</p>
+      <p class="client-position">Founder, EcoWeb Solutions</p>
+      <p class="testimonial-content">
+        "We were struggling to set up our online store for months before we came across HSQ Digital Hub. Their Shopify store management services were a game-changer! The team understood our needs and took the time to guide us through every step. The results speak for themselves — our sales have increased by 40% in the last 3 months!"
+      </p>
+    </div>
+  </div>
+
+  <div class="testimonial">
+    <div class="testimonial-photo">
+      <img src="assets/images/11319114eb8cc89e1b20870fbe4523e1.jpg" alt="Client Image" />
+    </div>
+    <div class="testimonial-text">
+      <p class="client-name">Sarah Khan</p>
+      <p class="client-position">CEO, SmartTech Solutions</p>
+      <p class="testimonial-content">
+        "I’ve worked with many agencies, but HSQ Digital Hub stands out. Their website development services exceeded our expectations. Not only did they build a user-friendly website for us, but they also optimized it for speed and search engines, resulting in higher traffic and engagement."
+      </p>
+    </div>
+  </div>
+
+  <div class="testimonial">
+    <div class="testimonial-photo">
+      <img src="assets/images/images.jpeg" alt="Client Image" />
+    </div>
+    <div class="testimonial-text">
+      <p class="client-name">Ali Rehman</p>
+      <p class="client-position">Owner, Aliexpress Dropshipping</p>
+      <p class="testimonial-content">
+        "HSQ Digital Hub helped us take our dropshipping business international. The team was professional, and their guidance throughout the entire process of setting up our online store and sourcing products was invaluable. We’re now shipping to over 10 countries!"
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="cent">
+  <h2>Contact Us</h2>
+   <form id="contact-form">
+     <input type="text" id="name" placeholder="Your Name" required>
+     <input type="email" id="email" placeholder="Your Email" required>
+     <textarea id="message" placeholder="Your Message" required></textarea>
+     <button type="submit">Send Message</button>
+   </form></div>
+
 
 
 
