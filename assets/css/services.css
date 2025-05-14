@@ -214,3 +214,87 @@ header{
   font-weight: bold;
   color: #007bff; /* Optional: Add a distinct color for the active link */
 }
+
+
+/* image servie */
+.service-group img {
+  width: 100px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 15px auto;
+}
+
+/* two */
+.service-group img.service-image {
+  width: 100px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 15px auto;
+}
+
+
+/* laksdjf */
+/* General styling for the service section */
+.service-group {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px;
+}
+
+/* Responsive image styling */
+.service-group .service-image {
+  width: 100px;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 15px;
+  display: block;
+}
+
+/* Button styling */
+.service-group button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.service-group button:hover {
+  background-color: #0056b3;
+}
+
+/* Section Title Styling */
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Responsiveness */
+@media (max-width: 600px) {
+  .service-group {
+    padding: 10px;
+  }
+
+  .service-group .service-image {
+    width: 80px;  /* Slightly smaller images on mobile */
+  }
+
+  .service-group h3 {
+    font-size: 1.2rem;
+  }
+
+  .service-group p {
+    font-size: 0.9rem;
+  }
+
+  .service-group button {
+    font-size: 1rem;
+    padding: 12px 25px;
+  }
+}
