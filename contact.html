@@ -51,6 +51,7 @@
   </div>
 </section>
 
+<!-- perfect form -->
 <script>
   document.getElementById("contact-form").addEventListener("submit", function (e) {
     e.preventDefault();
@@ -60,12 +61,13 @@
     const message = document.getElementById("message").value.trim();
 
     const fullMessage = `*Name:* ${name}\n*Email:* ${email}\n*Message:* ${message}`;
-    const phoneNumber = "923408189870";
+    const phoneNumber = "923268658459"; // updated number without spaces or +
     const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(fullMessage)}`;
 
     window.open(whatsappLink, "_blank");
   });
 </script>
+
 
 
 

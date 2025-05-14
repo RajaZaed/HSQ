@@ -3,239 +3,220 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HSQ Digital Hub |Mzd </title>
+    <title>HSQ Digital Hub | Mzd</title>
     <link rel="icon" href="assets/images/Untitled design(2).jpg">
-    
+    <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
-
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="assets/images/Untitled design(2).jpg" alt="">
+            <img src="assets/images/Untitled design(2).jpg" alt="HSQ Digital Hub">
         </div>
         <div class="menu-toggle">
             &#x22EE;
         </div>
-        
         <div class="navbar">
-<a href="index.html">Home</a>
-<a href="services.html" >Services</a>
-<a href="team.html">Our Team</a>
-<a href="contact.html">Contact</a>
-<a href="about.html">About Us</a>
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="team.html">Our Team</a>
+            <a href="contact.html">Contact</a>
+            <a href="about.html">About Us</a>
         </div>
+    </header>
 
-<style>
-    *{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3 class="footer-heading">About Us</h3>
+                <p>Welcome to HSQ Digital Hub, Deal With Best – where creativity meets innovation. Our mission is to empower brands and businesses with cutting-edge digital solutions, from design to development, to help them grow and stand out in the modern world.</p>
+            </div>
+            <div class="footer-links">
+                <h3 class="footer-heading">Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="team.html">Our Team</a></li>
+                    <li><a href="about.html">Testimonials</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3 class="footer-heading">Contact Us</h3>
+                <p><strong>Phone:</strong> +92-324-170-5435 <br> +92-26-865-8459</p>
+                <p><strong>Email:</strong> hsqagency@gmail.com</p>
+                <p><strong>Address:</strong> Chella Pull Near Malik Cottage Neelum Road, Muzaffarabad, Azad Kashmir</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-socials">
+                <a href="https://www.linkedin.com/in/hamza-saleem-qureshi-177858349?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><img src="assets/images/linkedin_icon-icons.com_65929.png" alt="LinkedIn"></a>
+                <a href="https://www.facebook.com/profile.php?id=100080383885066&mibextid=ZbWKwL"><img src="assets/images/facebook_icon-icons.com_59205.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com/hsqdigitalhub/profilecard/?igsh=eXFwcWc3YXd2cmox"><img src="assets/images/Instagram_icon-icons.com_66804.png" alt="Instagram"></a>
+            </div>
+            <p>© 2025 HSQ Digital Hub - MZD. All Rights Reserved. <br> Website Developer: Raja Zaid - 03179220646</p>
+        </div>
+    </footer>
 
-body {
-  scroll-behavior: smooth;
-    font-family: 'Cormorant Garamond', serif;
-}
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/923241705435" class="whatsapp-icon" target="_blank">
+        <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp">
+    </a>
 
+    <!-- Script for Menu Toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggleBtn = document.querySelector('.menu-toggle');
+            const navbar = document.querySelector('.navbar');
 
-body{
-    height: 100%;
-    width: 100%;
-}
+            toggleBtn.addEventListener('click', function () {
+                navbar.classList.toggle('active');
+            });
+        });
+    </script>
 
-/* start */
-header{
-    height: 12vh;
-    width: 100;
-    max-width: 100%;
-    /* background-color: blue; */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
-    /* border-bottom: #FFD700 solid 0.1vh; */
-}
+    <!-- Initialize AOS -->
+    <script>
+        AOS.init({
+            duration: 1200, // Animation duration
+        });
+    </script>
 
-.logo img{
-    height: 12vh;
-    object-fit: cover;
-    margin: auto;
-   padding-left: 1vh;
-}
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
 
-.navbar a{
-    color: #293444;
-    text-decoration: none;
-    font-size: 1.4rem
-    ;
-    padding: 0 2vh;
-}
-.navbar a:hover{
-    color: blue;
-    text-decoration: underline;
-}
+        body {
+            font-family: 'Cormorant Garamond', serif;
+        }
 
+        /* Header */
+        header {
+            height: 12vh;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2vw;
+            background-color: #fff;
+        }
 
-.menu-toggle {
-    display: none;
-    font-size: 2rem;
-    cursor: pointer;
-    padding-right: 2vh;
-}
+        .logo img {
+            height: 100%;
+            object-fit: cover;
+        }
 
-@media (max-width: 768px) {
-    .navbar {
-        display: none;
-        flex-direction: column;
-        background-color: white;
-        position: absolute;
-        top: 12vh;
-        right: 0;
-        width: 100%;
-    }
+        .navbar {
+            display: flex;
+            gap: 20px;
+        }
 
-    .navbar.active {
-        display: flex;
-    }
+        .navbar a {
+            color: #293444;
+            text-decoration: none;
+            font-size: 1.4rem;
+            padding: 0 10px;
+        }
 
-    .menu-toggle {
-        display: block;
-    }
-}
+        .navbar a:hover {
+            color: blue;
+            text-decoration: underline;
+        }
 
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            font-size: 2rem;
+            cursor: pointer;
+        }
 
-@media (max-width: 768px) {
-    .navbar {
-        transition: all 0.3s ease-in-out;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        z-index: 10;
-    }
-}
+        @media (max-width: 768px) {
+            .navbar {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 12vh;
+                right: 0;
+                width: 100%;
+                background-color: #fff;
+                padding: 10px 0;
+            }
 
+            .navbar.active {
+                display: flex;
+            }
 
-.navbar {
-    transition: all 0.3s ease;
-}
+            .menu-toggle {
+                display: block;
+                font-size: 2.5rem;
+                padding: 10px;
+            }
 
-/* footer */
- /* Footer Section */
- .footer {
-  background-color: rgb(177, 177, 177);
-  color: #ffffff;
-  padding: 40px 20px;
-}
+            .navbar a {
+                padding: 10px;
+                text-align: center;
+                width: 100%;
+                border-bottom: 1px solid #ddd;
+            }
 
-.footer-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
+            .navbar a:last-child {
+                border-bottom: none;
+            }
+        }
 
-.footer-about,
-.footer-links,
-.footer-contact {
-  flex: 1 1 calc(33.333% - 20px);
-  min-width: 250px;
-}
+        /* Footer */
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-.footer-heading {
-  font-size: 1.5rem;
-  color: #020266;
-  margin-bottom: 20px;
-}
+        .footer-about, .footer-links, .footer-contact {
+            flex: 1;
+            min-width: 250px;
+        }
 
-.footer-about p,
-.footer-contact p {
-  font-size: 0.9rem;
-  line-height: 1.6;
-  font-size: 1.3rem;
-  color: black;
-}
+        .footer-about p, .footer-contact p {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
 
-.footer-links ul {
-  list-style: none;
-  padding: 0;
-}
+        .footer-socials a {
+            margin-left: 10px;
+            display: inline-block;
+        }
 
-.footer-links li {
-  margin-bottom: 10px;
-}
+        .footer-socials img {
+            width: 20px;
+            height: 20px;
+            filter: invert(1);
+            transition: transform 0.3s ease;
+        }
 
-.footer-links a {
-  color: black;
-  text-decoration: none;
-  font-size: 1.3rem;
-  transition: color 0.3s ease;
-}
+        .footer-socials a:hover img {
+            transform: scale(1.2);
+        }
 
-.footer-links a:hover {
-  color: #ff2d2a;
-}
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+            }
 
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 40px;
-  border-top: 1px solid #444444;
-  padding-top: 20px;
-  flex-wrap: wrap;
-}
+            .footer-socials {
+                margin-top: 10px;
+            }
 
-.footer-bottom p {
-  font-size: 0.8rem;
-  margin: 0;
-  color: black;
-}
-
-.footer-socials a {
-  margin-left: 10px;
-  display: inline-block;
-}
-
-.footer-socials img {
-  width: 20px;
-  height: 20px;
-  filter: invert(1);
-  transition: transform 0.3s ease;
-}
-
-.footer-socials a:hover img {
-  transform: scale(1.2);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .footer-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .footer-socials {
-    margin-top: 10px;
-  }
-}
-
-</style>
-
-
-
-
-
-
-
-
-
-
-
+            .footer-bottom {
+                text-align: center;
+            }
+        }
+    </style>
+</body>
+</html>
