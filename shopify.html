@@ -234,6 +234,16 @@
       <option value="Yes">Yes</option>
       <option value="No">No</option>
     </select>
+<!-- new zip -->
+<label for="businessType">Type of Business / Niche *</label>
+<input type="text" id="businessType" placeholder="e.g. Fashion, Electronics, Cosmetics" required>
+
+<label for="targetMarket">Target Market</label>
+<input type="text" id="targetMarket" placeholder="e.g. USA, Pakistan, Worldwide">
+
+<label for="budget">Estimated Budget (optional)</label>
+<input type="text" id="budget" placeholder="e.g. 30,000 PKR or any budget!">
+
 
     <label>What services do you need? *</label>
     <div class="checkbox-group" id="services">
@@ -259,6 +269,11 @@
     const phone = document.getElementById("phone").value.trim();
     const storeStatus = document.getElementById("storeStatus").value;
     const details = document.getElementById("details").value.trim();
+    // new
+    const businessType = document.getElementById("businessType").value.trim();
+const targetMarket = document.getElementById("targetMarket").value.trim();
+const budget = document.getElementById("budget").value.trim();
+
 
     const checkboxes = document.querySelectorAll('input[name="services"]:checked');
     const services = Array.from(checkboxes).map(cb => cb.value).join(", ");
@@ -268,11 +283,14 @@
       return;
     }
 
-    const message = `*New Shopify Service Booking*%0A
+  const message = `*New Shopify Service Booking*%0A
 *Name:* ${name}%0A
 *Email:* ${email}%0A
 *Phone:* ${phone}%0A
 *Has Store:* ${storeStatus}%0A
+*Type of Business:* ${businessType}%0A
+*Target Market:* ${targetMarket || "Not specified"}%0A
+*Estimated Budget:* ${budget || "Not specified"}%0A
 *Service(s) Needed:* ${services}%0A
 *Details:* ${details || "N/A"}`;
 
