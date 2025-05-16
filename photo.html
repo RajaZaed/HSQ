@@ -24,7 +24,32 @@
 </head>
 <body>
   
-    <style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HSQ Digital Hub | MZD</title>
+  <link rel="icon" href="assets/images/Untitled design(2).jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cormorant Garamond', serif;
+      scroll-behavior: smooth;
+    }
+
+   
+
+  </style>
+
+
+ <style>
     body {
       background: #f3f4f6;
       padding: 20px;
@@ -99,8 +124,8 @@
 </head>
 <body>
   <div class="form-container">
-    <h2>Social Media Management</h2>
-    <form id="smmForm">
+    <h2>Photography & Product Shoot</h2>
+    <form id="photoForm">
       <label for="name">Full Name *</label>
       <input type="text" id="name" required />
 
@@ -110,24 +135,27 @@
       <label for="phone">Phone Number *</label>
       <input type="tel" id="phone" required />
 
-      <label for="business">Business Name / Type *</label>
-      <input type="text" id="business" placeholder="e.g. Clothing Brand, Local Restaurant" required />
+      <label for="brand">Business / Brand Name *</label>
+      <input type="text" id="brand" placeholder="e.g. House of Fashion, TechStore" required />
 
-      <label for="platforms">Which platforms do you want to manage? *</label>
-      <div class="checkbox-group" id="platforms">
-        <label><input type="checkbox" name="platforms" value="Facebook"> Facebook</label>
-        <label><input type="checkbox" name="platforms" value="Instagram"> Instagram</label>
-        <label><input type="checkbox" name="platforms" value="Snapchat"> Snapchat</label>
-        <label><input type="checkbox" name="platforms" value="TikTok"> TikTok</label>
-        <label><input type="checkbox" name="platforms" value="Google Ads"> Google Ads</label>
-        <label><input type="checkbox" name="platforms" value="Other"> Other</label>
+      <label>Type of Shoot Required *</label>
+      <div class="checkbox-group" id="shoots">
+        <label><input type="checkbox" name="shoots" value="Product Shoot"> Product Shoot</label>
+        <label><input type="checkbox" name="shoots" value="Model Shoot"> Model Shoot</label>
+        <label><input type="checkbox" name="shoots" value="Event Photography"> Event Photography</label>
+        <label><input type="checkbox" name="shoots" value="Indoor/Studio Shoot"> Indoor/Studio Shoot</label>
+        <label><input type="checkbox" name="shoots" value="Outdoor Shoot"> Outdoor Shoot</label>
+        <label><input type="checkbox" name="shoots" value="Other"> Other</label>
       </div>
 
-      <label for="goals">What are your goals with SMM? *</label>
-      <textarea id="goals" placeholder="e.g. Increase followers, generate leads, boost sales" required></textarea>
+      <label for="location">Preferred Shoot Location</label>
+      <input type="text" id="location" placeholder="e.g. Lahore, Karachi, In-store, Studio" />
 
-      <label for="budget">Monthly Budget (optional)</label>
-      <input type="text" id="budget" placeholder="e.g. 30,000 or 50,000 PKR" />
+      <label for="quantity">How many products / outfits?</label>
+      <input type="text" id="quantity" placeholder="e.g. 10 products, 5 models, etc." />
+
+      <label for="notes">Additional Notes</label>
+      <textarea id="notes" placeholder="Specific shoot requirements, references, etc."></textarea>
 
       <button type="button" onclick="sendToWhatsApp()">Submit</button>
     </form>
@@ -138,33 +166,34 @@
       const name = document.getElementById("name").value.trim();
       const email = document.getElementById("email").value.trim();
       const phone = document.getElementById("phone").value.trim();
-      const business = document.getElementById("business").value.trim();
-      const goals = document.getElementById("goals").value.trim();
-      const budget = document.getElementById("budget").value.trim();
+      const brand = document.getElementById("brand").value.trim();
+      const location = document.getElementById("location").value.trim();
+      const quantity = document.getElementById("quantity").value.trim();
+      const notes = document.getElementById("notes").value.trim();
 
-      const selectedPlatforms = Array.from(document.querySelectorAll('input[name="platforms"]:checked'))
+      const selectedShoots = Array.from(document.querySelectorAll('input[name="shoots"]:checked'))
         .map(cb => "• " + cb.value)
         .join("%0A");
 
-      if (!name || !email || !phone || !business || !goals || !selectedPlatforms) {
+      if (!name || !email || !phone || !brand || !selectedShoots) {
         alert("Please fill out all required fields.");
         return;
       }
 
-      const message = `*New Social Media Management Inquiry*%0A
+      const message = `*New Photography & Product Shoot Inquiry*%0A
 *Name:* ${name}%0A
 *Email:* ${email}%0A
 *Phone:* ${phone}%0A
-*Business:* ${business}%0A
-*Platforms:*%0A${selectedPlatforms}%0A
-*Goals:* ${goals}%0A
-*Monthly Budget:* ${budget || "Not specified"}`;
+*Business:* ${brand}%0A
+*Type of Shoot:*%0A${selectedShoots}%0A
+*Location:* ${location || "Not specified"}%0A
+*Quantity:* ${quantity || "Not specified"}%0A
+*Additional Notes:* ${notes || "N/A"}`;
 
       const url = `https://wa.me/923268658459?text=${encodeURIComponent(message)}`;
       window.open(url, "_blank");
     }
   </script>
-
 
 </body>
 </html>

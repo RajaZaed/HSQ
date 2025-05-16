@@ -23,8 +23,7 @@
   </style>
 </head>
 <body>
-  
-    <style>
+  <style>
     body {
       background: #f3f4f6;
       padding: 20px;
@@ -58,6 +57,10 @@
       border-radius: 8px;
     }
 
+    textarea {
+      resize: vertical;
+    }
+
     .checkbox-group {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -72,6 +75,12 @@
       background: #f0f0f0;
       padding: 8px;
       border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .checkbox-group input[type="checkbox"] {
+      transform: scale(1.2);
+      cursor: pointer;
     }
 
     button {
@@ -89,18 +98,12 @@
     button:hover {
       background: #073763;
     }
-
-    @media (max-width: 600px) {
-      .checkbox-group {
-        grid-template-columns: 1fr;
-      }
-    }
   </style>
 </head>
 <body>
   <div class="form-container">
-    <h2>Social Media Management</h2>
-    <form id="smmForm">
+    <h2>Company & Account Registration</h2>
+    <form id="shopifyForm">
       <label for="name">Full Name *</label>
       <input type="text" id="name" required />
 
@@ -110,24 +113,30 @@
       <label for="phone">Phone Number *</label>
       <input type="tel" id="phone" required />
 
-      <label for="business">Business Name / Type *</label>
-      <input type="text" id="business" placeholder="e.g. Clothing Brand, Local Restaurant" required />
+      <label for="country">Which Country Company You Want to Register? *</label>
+      <select id="country" required>
+        <option value="">Select Country</option>
+        <option value="USA">USA</option>
+        <option value="UK">UK</option>
+        <option value="UAE">UAE</option>
+        <option value="Other">Other</option>
+      </select>
 
-      <label for="platforms">Which platforms do you want to manage? *</label>
+      <label for="brand">Proposed Business / Brand Name *</label>
+      <input type="text" id="brand" placeholder="e.g. SmartGear, Zedify Traders" required />
+
+      <label>Platform(s) You Want to Sell On *</label>
       <div class="checkbox-group" id="platforms">
-        <label><input type="checkbox" name="platforms" value="Facebook"> Facebook</label>
-        <label><input type="checkbox" name="platforms" value="Instagram"> Instagram</label>
-        <label><input type="checkbox" name="platforms" value="Snapchat"> Snapchat</label>
-        <label><input type="checkbox" name="platforms" value="TikTok"> TikTok</label>
-        <label><input type="checkbox" name="platforms" value="Google Ads"> Google Ads</label>
-        <label><input type="checkbox" name="platforms" value="Other"> Other</label>
+        <label><input type="checkbox" value="Amazon"> Amazon</label>
+        <label><input type="checkbox" value="Shopify"> Shopify</label>
+        <label><input type="checkbox" value="eBay"> eBay</label>
+        <label><input type="checkbox" value="Etsy"> Etsy</label>
+        <label><input type="checkbox" value="Walmart"> Walmart</label>
+        <label><input type="checkbox" value="other"> other</label>
       </div>
 
-      <label for="goals">What are your goals with SMM? *</label>
-      <textarea id="goals" placeholder="e.g. Increase followers, generate leads, boost sales" required></textarea>
-
-      <label for="budget">Monthly Budget (optional)</label>
-      <input type="text" id="budget" placeholder="e.g. 30,000 or 50,000 PKR" />
+      <label for="notes">Additional Notes (optional)</label>
+      <textarea id="notes" placeholder="Mention specific needs, timelines or requirements."></textarea>
 
       <button type="button" onclick="sendToWhatsApp()">Submit</button>
     </form>
@@ -138,27 +147,26 @@
       const name = document.getElementById("name").value.trim();
       const email = document.getElementById("email").value.trim();
       const phone = document.getElementById("phone").value.trim();
-      const business = document.getElementById("business").value.trim();
-      const goals = document.getElementById("goals").value.trim();
-      const budget = document.getElementById("budget").value.trim();
+      const country = document.getElementById("country").value;
+      const brand = document.getElementById("brand").value.trim();
+      const notes = document.getElementById("notes").value.trim();
 
-      const selectedPlatforms = Array.from(document.querySelectorAll('input[name="platforms"]:checked'))
-        .map(cb => "• " + cb.value)
-        .join("%0A");
+      const platformChecks = document.querySelectorAll('#platforms input[type="checkbox"]:checked');
+      const platforms = Array.from(platformChecks).map(cb => "• " + cb.value).join("%0A");
 
-      if (!name || !email || !phone || !business || !goals || !selectedPlatforms) {
+      if (!name || !email || !phone || !country || !brand || platformChecks.length === 0) {
         alert("Please fill out all required fields.");
         return;
       }
 
-      const message = `*New Social Media Management Inquiry*%0A
-*Name:* ${name}%0A
-*Email:* ${email}%0A
-*Phone:* ${phone}%0A
-*Business:* ${business}%0A
-*Platforms:*%0A${selectedPlatforms}%0A
-*Goals:* ${goals}%0A
-*Monthly Budget:* ${budget || "Not specified"}`;
+      const message = `*New Shopify Company Registration Inquiry*%0A` +
+        `*Name:* ${name}%0A` +
+        `*Email:* ${email}%0A` +
+        `*Phone:* ${phone}%0A` +
+        `*Company Country:* ${country}%0A` +
+        `*Business Name:* ${brand}%0A` +
+        `*Target Platforms:*%0A${platforms}%0A` +
+        `*Additional Notes:* ${notes || "N/A"}`;
 
       const url = `https://wa.me/923268658459?text=${encodeURIComponent(message)}`;
       window.open(url, "_blank");

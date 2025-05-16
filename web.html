@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Web Development Inquiry</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/images/Untitled design(2).jpg">
+  <style>
+    body {
+      /* font-family: Arial, sans-serif; */
+      background: #f0f4f8;
+      padding: 30px;
+    }
+
+    .form-container {
+      background: white;
+      max-width: 600px;
+      margin: auto;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #0b5394;
+    }
+
+    label {
+      display: block;
+      margin: 12px 0 5px;
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .checkbox-group label {
+      font-weight: normal;
+      margin-right: 15px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #0b5394;
+      color: white;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #073763;
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-container">
+  <h2>Web Development Inquiry Form</h2>
+  <form id="webDevForm">
+    <label for="name">Full Name *</label>
+    <input type="text" id="name" required>
+
+    <label for="email">Email Address *</label>
+    <input type="email" id="email" required>
+
+    <label for="phone">Phone Number *</label>
+    <input type="tel" id="phone" required>
+
+    <label for="websiteType">Type of Website *</label>
+    <select id="websiteType" required>
+      <option value="">-- Select --</option>
+      <option value="Business Website">Business Website</option>
+      <option value="E-commerce Store">E-commerce Store</option>
+      <option value="Portfolio">Portfolio</option>
+      <option value="Blog">Blog</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <label for="businessType">Business / Niche *</label>
+    <input type="text" id="businessType" required placeholder="real-estate, clothing, etc">
+
+    <label>Features Needed *</label>
+    <div class="checkbox-group">
+      <label><input type="checkbox" name="features" value="Mobile Responsive"> Mobile Responsive</label>
+      <label><input type="checkbox" name="features" value="Contact Form"> Contact Form</label>
+      <label><input type="checkbox" name="features" value="Live Chat"> Live Chat</label>
+      <label><input type="checkbox" name="features" value="Payment Integration"> Payment Integration</label>
+      <label><input type="checkbox" name="features" value="Admin Panel"> Admin Panel</label>
+      <label><input type="checkbox" name="features" value="SEO Optimization"> SEO Optimization</label>
+    </div>
+
+    <label for="budget">Estimated Budget *</label>
+    <input type="text" id="budget" placeholder="e.g. 50,000 PKR" required>
+
+    <label for="deadline">Project Deadline *</label>
+    <input type="text" id="deadline" placeholder="e.g. 3 weeks, 1 month" required>
+
+    <label for="details">Additional Details</label>
+    <textarea id="details" placeholder="Anything else you want to mention..."></textarea>
+
+    <button type="button" onclick="sendToWhatsApp()">Submit </button>
+  </form>
+</div>
+
+<script>
+  function sendToWhatsApp() {
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const websiteType = document.getElementById("websiteType").value;
+    const businessType = document.getElementById("businessType").value.trim();
+    const budget = document.getElementById("budget").value.trim();
+    const deadline = document.getElementById("deadline").value.trim();
+    const details = document.getElementById("details").value.trim();
+
+    const checkboxes = document.querySelectorAll('input[name="features"]:checked');
+    const features = Array.from(checkboxes).map(cb => cb.value).join(", ");
+
+    if (!name || !email || !phone || !websiteType || !businessType || !features || !budget || !deadline) {
+      alert("Please fill out all required fields.");
+      return;
+    }
+
+    // No %0A used — just spaces
+    const message = 
+      `Web Dev Inquiry: ` +
+      `Name: ${name}, ` +
+      `Email: ${email}, ` +
+      `Phone: ${phone}, ` +
+      `Website Type: ${websiteType}, ` +
+      `Business: ${businessType}, ` +
+      `Features: ${features}, ` +
+      `Budget: ${budget}, ` +
+      `Deadline: ${deadline}, ` +
+      `Details: ${details || "None"}`;
+
+    const url = `https://wa.me/923179220646?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
+  }
+</script>
+
+</body>
+</html>

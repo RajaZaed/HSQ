@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HSQ Digital Hub | MZD</title>
+  <link rel="icon" href="assets/images/Untitled design(2).jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cormorant Garamond', serif;
+      scroll-behavior: smooth;
+    }
+
+   
+
+  </style>
+</head>
+<body>
+  
+    <style>
+    body {
+      background: #f9fafb;
+      padding: 20px;
+    }
+    .form-container {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 600;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    textarea {
+      resize: vertical;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      background-color: #0b5394;
+      color: white;
+      font-size: 1.1rem;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #073763;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Virtual Assistance Service</h2>
+    <form id="vaForm">
+      <label for="name">Full Name *</label>
+      <input type="text" id="name" required />
+
+      <label for="email">Email Address *</label>
+      <input type="email" id="email" required />
+
+      <label for="phone">Phone Number *</label>
+      <input type="tel" id="phone" required />
+
+      <label for="taskType">Type of Tasks Needed *</label>
+      <select id="taskType" required>
+        <option value="">-- Select --</option>
+        <option value="Administrative Support">Administrative Support</option>
+        <option value="Customer Support">Customer Support</option>
+        <option value="Online Research">Online Research</option>
+        <option value="Data Entry">Data Entry</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <label for="hours">Estimated Weekly Hours *</label>
+      <input type="number" id="hours" min="1" placeholder="e.g. 10" required />
+
+      <label for="details">Additional Details (optional)</label>
+      <textarea id="details" placeholder="Anything else we should know?"></textarea>
+
+      <button type="button" onclick="sendToWhatsApp()">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    function sendToWhatsApp() {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const taskType = document.getElementById("taskType").value;
+      const hours = document.getElementById("hours").value.trim();
+      const details = document.getElementById("details").value.trim();
+
+      if (!name || !email || !phone || !taskType || !hours) {
+        alert("Please fill out all required fields.");
+        return;
+      }
+
+      const message =
+        `*Virtual Assistance Inquiry*%0A` +
+        `*Name:* ${name}%0A` +
+        `*Email:* ${email}%0A` +
+        `*Phone:* ${phone}%0A` +
+        `*Task Type:* ${taskType}%0A` +
+        `*Estimated Weekly Hours:* ${hours}%0A` +
+        `*Additional Details:* ${details || "N/A"}`;
+
+      const url = `https://wa.me/923268658459?text=${encodeURIComponent(message)}`;
+      window.open(url, "_blank");
+    }
+  </script>
+
+
+</body>
+</html>

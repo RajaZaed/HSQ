@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HSQ Digital Hub | MZD</title>
+  <link rel="icon" href="assets/images/Untitled design(2).jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cormorant Garamond', serif;
+      scroll-behavior: smooth;
+    }
+
+   
+
+  </style>
+</head>
+<body>
+  <style>
+    body {
+      background: #f9fafb;
+      padding: 20px;
+    }
+    .form-container {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 600;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    textarea {
+      resize: vertical;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      background-color: #0b5394;
+      color: white;
+      font-size: 1.1rem;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #073763;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Photo & Video Editing Service</h2>
+    <form id="pveForm">
+      <label for="name">Full Name *</label>
+      <input type="text" id="name" required />
+
+      <label for="email">Email Address *</label>
+      <input type="email" id="email" required />
+
+      <label for="phone">Phone Number *</label>
+      <input type="tel" id="phone" required />
+
+      <label for="serviceType">Select Service *</label>
+      <select id="serviceType" required>
+        <option value="">-- Select --</option>
+        <option value="Photo Retouching">Photo Retouching</option>
+        <option value="Video Editing">Video Editing</option>
+        <option value="Both Photo & Video">Both Photo & Video</option>
+      </select>
+
+      <label for="projectDetails">Project Details</label>
+      <textarea id="projectDetails" placeholder="Describe your project requirements..."></textarea>
+
+      <button type="button" onclick="sendToWhatsApp()">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    function sendToWhatsApp() {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const serviceType = document.getElementById("serviceType").value;
+      const projectDetails = document.getElementById("projectDetails").value.trim();
+
+      if (!name || !email || !phone || !serviceType) {
+        alert("Please fill out all required fields.");
+        return;
+      }
+
+      const lineBreak = "%0A";
+
+      const message =
+        "*Photo & Video Editing Inquiry*" + lineBreak +
+        "*Name:* " + encodeURIComponent(name) + lineBreak +
+        "*Email:* " + encodeURIComponent(email) + lineBreak +
+        "*Phone:* " + encodeURIComponent(phone) + lineBreak +
+        "*Service Type:* " + encodeURIComponent(serviceType) + lineBreak +
+        "*Project Details:* " + encodeURIComponent(projectDetails || "N/A");
+
+      const url = "https://wa.me/923268658459?text=" + message;
+
+      window.open(url, "_blank");
+    }
+  </script>
+
+
+</body>
+</html>

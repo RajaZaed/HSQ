@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HSQ Digital Hub | MZD</title>
+  <link rel="icon" href="assets/images/Untitled design(2).jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cormorant Garamond', serif;
+      scroll-behavior: smooth;
+    }
+
+   
+
+  </style>
+</head>
+<body>
+  <style>
+    body {
+      /* font-family: Arial, sans-serif; */
+      background: linear-gradient(to right, #e0eafc, #cfdef3);
+      margin: 0;
+      padding: 20px;
+    }
+
+    .form-container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #0b5394;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .checkbox-group label {
+      background-color: #f0f8ff;
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+
+    .checkbox-group input[type="checkbox"] {
+      margin-right: 8px;
+      transform: scale(1.2);
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 14px;
+      background-color: #0b5394;
+      color: white;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #073763;
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-container">
+  <h2>International Dropshipping Inquiry</h2>
+  <form id="dropshippingForm">
+    <label for="name">Full Name *</label>
+    <input type="text" id="name" required>
+
+    <label for="email">Email Address *</label>
+    <input type="email" id="email" required>
+
+    <label for="phone">Phone Number *</label>
+    <input type="tel" id="phone" required>
+
+    <label for="businessType">Business Type / Niche *</label>
+    <input type="text" id="businessType" placeholder="e.g. Home Decor, Fitness, Electronics" required>
+
+    <label for="targetMarket">Target Market</label>
+    <input type="text" id="targetMarket" placeholder="e.g. USA, UK, Worldwide">
+
+    <label for="budget">Estimated Budget</label>
+    <input type="text" id="budget" placeholder="e.g. 20,000 to 30,000 any range">
+
+    <label>What services do you need? *</label>
+    <div class="checkbox-group" id="services">
+      <label><input type="checkbox" name="services" value="Product Sourcing"> Product Sourcing</label>
+      <label><input type="checkbox" name="services" value="Store Setup"> Store Setup</label>
+      <label><input type="checkbox" name="services" value="Automation Tools"> Automation Tools</label>
+      <label><input type="checkbox" name="services" value="Order Fulfillment"> Order Fulfillment</label>
+      <label><input type="checkbox" name="services" value="Branding & Packaging"> Branding & Packaging</label>
+      <label><input type="checkbox" name="services" value="Other"> Other (mention below)</label>
+    </div>
+
+    <label for="details">Additional Details</label>
+    <textarea id="details" placeholder="Write any specific requirements here..."></textarea>
+
+    <button type="button" onclick="sendToWhatsApp()">Submit</button>
+  </form>
+</div>
+
+<script>
+  function sendToWhatsApp() {
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const businessType = document.getElementById("businessType").value.trim();
+    const targetMarket = document.getElementById("targetMarket").value.trim() || "Not specified";
+    const budget = document.getElementById("budget").value.trim() || "Not specified";
+    const details = document.getElementById("details").value.trim() || "N/A";
+
+    const checkboxes = document.querySelectorAll('input[name="services"]:checked');
+    if (!name || !email || !phone || !businessType || checkboxes.length === 0) {
+      alert("Please fill out all required fields.");
+      return;
+    }
+
+    const services = Array.from(checkboxes)
+      .map(cb => `- ${cb.value}`)
+      .join('%0A');
+
+    const message = `*New Dropshipping Inquiry*%0A
+*Name:* ${name}%0A
+*Email:* ${email}%0A
+*Phone:* ${phone}%0A
+*Business Type:* ${businessType}%0A
+*Target Market:* ${targetMarket}%0A
+*Estimated Budget:* ${budget}%0A
+*Needed Services:*%0A${services}%0A
+*Additional Details:* ${details}`;
+
+    const url = `https://wa.me/923268658459?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
+  }
+</script>
+
+
+</body>
+</html>

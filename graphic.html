@@ -99,8 +99,8 @@
 </head>
 <body>
   <div class="form-container">
-    <h2>Social Media Management</h2>
-    <form id="smmForm">
+    <h2>Graphic & Logo Design</h2>
+    <form id="designForm">
       <label for="name">Full Name *</label>
       <input type="text" id="name" required />
 
@@ -110,24 +110,27 @@
       <label for="phone">Phone Number *</label>
       <input type="tel" id="phone" required />
 
-      <label for="business">Business Name / Type *</label>
-      <input type="text" id="business" placeholder="e.g. Clothing Brand, Local Restaurant" required />
+      <label for="business">Business / Brand Name *</label>
+      <input type="text" id="business" placeholder="e.g. Luxe Clothing, Foodies Cafe" required />
 
-      <label for="platforms">Which platforms do you want to manage? *</label>
-      <div class="checkbox-group" id="platforms">
-        <label><input type="checkbox" name="platforms" value="Facebook"> Facebook</label>
-        <label><input type="checkbox" name="platforms" value="Instagram"> Instagram</label>
-        <label><input type="checkbox" name="platforms" value="Snapchat"> Snapchat</label>
-        <label><input type="checkbox" name="platforms" value="TikTok"> TikTok</label>
-        <label><input type="checkbox" name="platforms" value="Google Ads"> Google Ads</label>
-        <label><input type="checkbox" name="platforms" value="Other"> Other</label>
+      <label for="designs">What do you need? *</label>
+      <div class="checkbox-group" id="designs">
+        <label><input type="checkbox" name="designs" value="Logo Design"> Logo Design</label>
+        <label><input type="checkbox" name="designs" value="Business Card"> Business Card</label>
+        <label><input type="checkbox" name="designs" value="Social Media Post"> Social Media Post</label>
+        <label><input type="checkbox" name="designs" value="Flyer/Brochure"> Flyer/Brochure</label>
+        <label><input type="checkbox" name="designs" value="Packaging Design"> Packaging Design</label>
+        <label><input type="checkbox" name="designs" value="Other"> Other</label>
       </div>
 
-      <label for="goals">What are your goals with SMM? *</label>
-      <textarea id="goals" placeholder="e.g. Increase followers, generate leads, boost sales" required></textarea>
+      <label for="style">Preferred Design Style</label>
+      <input type="text" id="style" placeholder="e.g. Minimalist, Bold, Elegant" />
 
-      <label for="budget">Monthly Budget (optional)</label>
-      <input type="text" id="budget" placeholder="e.g. 30,000 or 50,000 PKR" />
+      <label for="colors">Brand Colors (if any)</label>
+      <input type="text" id="colors" placeholder="e.g. Black, Gold, White" />
+
+      <label for="details">Additional Notes</label>
+      <textarea id="details" placeholder="Tell us any specific ideas, text, or references you have..."></textarea>
 
       <button type="button" onclick="sendToWhatsApp()">Submit</button>
     </form>
@@ -139,26 +142,28 @@
       const email = document.getElementById("email").value.trim();
       const phone = document.getElementById("phone").value.trim();
       const business = document.getElementById("business").value.trim();
-      const goals = document.getElementById("goals").value.trim();
-      const budget = document.getElementById("budget").value.trim();
+      const style = document.getElementById("style").value.trim();
+      const colors = document.getElementById("colors").value.trim();
+      const details = document.getElementById("details").value.trim();
 
-      const selectedPlatforms = Array.from(document.querySelectorAll('input[name="platforms"]:checked'))
+      const selectedDesigns = Array.from(document.querySelectorAll('input[name="designs"]:checked'))
         .map(cb => "• " + cb.value)
         .join("%0A");
 
-      if (!name || !email || !phone || !business || !goals || !selectedPlatforms) {
+      if (!name || !email || !phone || !business || !selectedDesigns) {
         alert("Please fill out all required fields.");
         return;
       }
 
-      const message = `*New Social Media Management Inquiry*%0A
+      const message = `*New Graphic & Logo Design Inquiry*%0A
 *Name:* ${name}%0A
 *Email:* ${email}%0A
 *Phone:* ${phone}%0A
 *Business:* ${business}%0A
-*Platforms:*%0A${selectedPlatforms}%0A
-*Goals:* ${goals}%0A
-*Monthly Budget:* ${budget || "Not specified"}`;
+*Requested Services:*%0A${selectedDesigns}%0A
+*Preferred Style:* ${style || "Not specified"}%0A
+*Brand Colors:* ${colors || "Not specified"}%0A
+*Additional Notes:* ${details || "N/A"}`;
 
       const url = `https://wa.me/923268658459?text=${encodeURIComponent(message)}`;
       window.open(url, "_blank");
