@@ -99,34 +99,34 @@
       <button type="button" onclick="sendToWhatsApp()">Submit</button>
     </form>
   </div>
-
   <script>
-    function sendToWhatsApp() {
-      const name = document.getElementById("name").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const phone = document.getElementById("phone").value.trim();
-      const website = document.getElementById("website").value.trim();
-      const goals = document.getElementById("goals").value.trim();
-      const budget = document.getElementById("budget").value.trim();
 
-      if (!name || !email || !phone || !website) {
-        alert("Please fill out all required fields.");
-        return;
-      }
+  function sendToWhatsApp() {
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const website = document.getElementById("website").value.trim();
+  const goals = document.getElementById("goals").value.trim();
+  const budget = document.getElementById("budget").value.trim();
 
-      const message =
-        `*SEO Service Inquiry*%0A` +
-        `*Name:* ${name}%0A` +
-        `*Email:* ${email}%0A` +
-        `*Phone:* ${phone}%0A` +
-        `*Website:* ${website}%0A` +
-        `*SEO Goals / Keywords:* ${goals || "N/A"}%0A` +
-        `*Estimated Budget:* ${budget || "Not specified"}`;
+  if (!name || !email || !phone || !website) {
+    alert("Please fill out all required fields.");
+    return;
+  }
 
-      const url = `https://wa.me/923268658459?text=${encodeURIComponent(message)}`;
-      window.open(url, "_blank");
-    }
-  </script>
+  const message =
+    `*SEO Service Inquiry*\n` +
+    `*Name:* ${name}\n` +
+    `*Email:* ${email}\n` +
+    `*Phone:* ${phone}\n` +
+    `*Website:* ${website}\n` +
+    `*SEO Goals / Keywords:* ${goals || "N/A"}\n` +
+    `*Estimated Budget:* ${budget || "Not specified"}`;
+
+  const url = `https://wa.me/923268658459?text=${encodeURIComponent(message)}`;
+  window.open(url, "_blank");
+}
+</script>
 
 </body>
 </html>

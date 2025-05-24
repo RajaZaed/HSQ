@@ -142,36 +142,38 @@
     </form>
   </div>
 
-  <script>
-    function sendToWhatsApp() {
-      const name = document.getElementById("name").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const phone = document.getElementById("phone").value.trim();
-      const country = document.getElementById("country").value;
-      const brand = document.getElementById("brand").value.trim();
-      const notes = document.getElementById("notes").value.trim();
+<script>
+  function sendToWhatsApp() {
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const country = document.getElementById("country").value;
+    const brand = document.getElementById("brand").value.trim();
+    const notes = document.getElementById("notes").value.trim();
 
-      const platformChecks = document.querySelectorAll('#platforms input[type="checkbox"]:checked');
-      const platforms = Array.from(platformChecks).map(cb => "• " + cb.value).join("%0A");
+    const platformChecks = document.querySelectorAll('#platforms input[type="checkbox"]:checked');
+    const platforms = Array.from(platformChecks).map(cb => `• ${cb.value}`).join("\n");
 
-      if (!name || !email || !phone || !country || !brand || platformChecks.length === 0) {
-        alert("Please fill out all required fields.");
-        return;
-      }
-
-      const message = `*New Shopify Company Registration Inquiry*%0A` +
-        `*Name:* ${name}%0A` +
-        `*Email:* ${email}%0A` +
-        `*Phone:* ${phone}%0A` +
-        `*Company Country:* ${country}%0A` +
-        `*Business Name:* ${brand}%0A` +
-        `*Target Platforms:*%0A${platforms}%0A` +
-        `*Additional Notes:* ${notes || "N/A"}`;
-
-      const url = `https://wa.me/923268658459?text=${encodeURIComponent(message)}`;
-      window.open(url, "_blank");
+    if (!name || !email || !phone || !country || !brand || platformChecks.length === 0) {
+      alert("Please fill out all required fields.");
+      return;
     }
-  </script>
+
+    const message = 
+      "*New Shopify Company Registration Inquiry*\n\n" +
+      `*Name:* ${name}\n` +
+      `*Email:* ${email}\n` +
+      `*Phone:* ${phone}\n` +
+      `*Company Country:* ${country}\n` +
+      `*Business Name:* ${brand}\n` +
+      `*Target Platforms:*\n${platforms}\n` +
+      `*Additional Notes:* ${notes || "N/A"}`;
+
+    const whatsappURL = `https://wa.me/923268658459?text=${encodeURIComponent(message)}`;
+    window.open(whatsappURL, "_blank");
+  }
+</script>
+
 
 
 </body>

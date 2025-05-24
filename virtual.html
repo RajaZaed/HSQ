@@ -107,33 +107,34 @@
     </form>
   </div>
 
-  <script>
-    function sendToWhatsApp() {
-      const name = document.getElementById("name").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const phone = document.getElementById("phone").value.trim();
-      const taskType = document.getElementById("taskType").value;
-      const hours = document.getElementById("hours").value.trim();
-      const details = document.getElementById("details").value.trim();
+ <script>
+  function sendToWhatsApp() {
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const taskType = document.getElementById("taskType").value;
+    const hours = document.getElementById("hours").value.trim();
+    const details = document.getElementById("details").value.trim();
 
-      if (!name || !email || !phone || !taskType || !hours) {
-        alert("Please fill out all required fields.");
-        return;
-      }
-
-      const message =
-        `*Virtual Assistance Inquiry*%0A` +
-        `*Name:* ${name}%0A` +
-        `*Email:* ${email}%0A` +
-        `*Phone:* ${phone}%0A` +
-        `*Task Type:* ${taskType}%0A` +
-        `*Estimated Weekly Hours:* ${hours}%0A` +
-        `*Additional Details:* ${details || "N/A"}`;
-
-      const url = `https://wa.me/923268658459?text=${encodeURIComponent(message)}`;
-      window.open(url, "_blank");
+    if (!name || !email || !phone || !taskType || !hours) {
+      alert("Please fill out all required fields.");
+      return;
     }
-  </script>
+
+    const message =
+      `*Virtual Assistance Inquiry*\n` +
+      `\n` +
+      `*Name:* ${name}\n` +
+      `*Email:* ${email}\n` +
+      `*Phone:* ${phone}\n` +
+      `*Task Type:* ${taskType}\n` +
+      `*Estimated Weekly Hours:* ${hours}\n` +
+      `*Additional Details:* ${details || "N/A"}`;
+
+    const url = `https://wa.me/923268658459?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
+  }
+</script>
 
 
 </body>
